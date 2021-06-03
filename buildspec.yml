@@ -1,0 +1,25 @@
+version: 0.2
+
+phases: 
+    install:
+        runtime-versions:
+            nodejs: 10
+        commands:
+            - echo "installing something"
+    pre_build:
+        commands: 
+            - echo "This is the pre build phase"
+    build:
+        commands:
+            - echo "This is the build phase"
+            - echo "Here we can run some tests"
+            - grep -Fq "Welcome" index.html
+    post_build:
+        commands:
+            - echo "This is the post build phase"
+            
+artifacts:
+  files:
+    - '**/*'
+  name: DevOpsAppArtifacts             
+            
